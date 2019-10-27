@@ -1,6 +1,12 @@
 var unirest = require("unirest");
 var cloudinary = require("cloudinary").v2;
-const express = require('express');
+var express = require('express')
+  , cors = require('cors')
+  , app = express();
+const corsOptions = {
+  origin: true,
+  credentials: true
+}
 const multer = require('multer');
 const app = express();
 const path = require("path");
@@ -166,6 +172,7 @@ app.post('/upload', function (req, res) {
   } else throw error;
 
 });
+app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
 
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
