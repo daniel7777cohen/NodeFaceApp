@@ -125,6 +125,8 @@
                 data:  { your_data: res.data.secure_url } ,
                 dataType: 'json',
 
+            }).catch(function(err){
+                console.log(err);
             });
             }).catch(function (err) {
                 console.log("there was an error");
