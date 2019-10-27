@@ -125,9 +125,13 @@
                 data:  { your_data: res.data.secure_url } ,
                 dataType: 'json',
 
+            }).then(function(res){
+                console.log("great success");
+                console.log(res);
             }).catch(function(err){
+                console.log("bad");
                 console.log(err);
-            });
+            })
             }).catch(function (err) {
                 console.log("there was an error");
             });
