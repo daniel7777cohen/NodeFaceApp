@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>IMAGE</title>
+</head>
+<body>
+<style>
+  
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+body {
+background-color: linen;
+}
+h3 {
+    font-weight: bold;
+    font-size-adjust: 0.90;
+
+    color : DarkSlateGray;
+}
+
+</style>
+
+    <div class = "Container">
+
+            <img src = "<%=url%>">
+
+    </div>
+
+    <div class = "container">
+
+               <h1>: תוצאות האבחנה </h1>
+                <h2>רגשות-</h2>
+                <h3> Happiness : <%= JSON.stringify(detailsFromApi[0].attributes.emotion.happiness) %></h3>
+                <h3> Sadness : <%= JSON.stringify(detailsFromApi[0].attributes.emotion.sadness) %> </h3>
+                <h3> Anger : <%= JSON.stringify(detailsFromApi[0].attributes.emotion.anger) %></h3>
+                <h3> Neutral : <%= JSON.stringify(detailsFromApi[0].attributes.emotion.neutral) %></h3>
+                <h3> Surprise : <%= JSON.stringify(detailsFromApi[0].attributes.emotion.surprise) %></h3>
+                <h3> Fear : <%= JSON.stringify(detailsFromApi[0].attributes.emotion.fear) %></h3>
+                <h3> Disgust : <%= JSON.stringify(detailsFromApi[0].attributes.emotion.disgust) %></h3>
+
+               <h2>ציון יופי - What Society thinks about me?</h2>
+               <h2><b>הנתונים מייצגים ציון, כמה מצאת חן בעיני נשים וגברים באוכלוסיה </b></h2>
+                <h3>Men Score : <%= JSON.stringify(detailsFromApi[0].attributes.beauty.male_score) %>% . Woman Score : <%= JSON.stringify(detailsFromApi[0].attributes.beauty.female_score) %>% </h3>
+               <h2>גיל-</h2> <h3><%= JSON.stringify(detailsFromApi[0].attributes.age.value) %></h3>
+               <h2>סטאטוס בריאות-</h2>
+               <h3>Health Score / ציון בריאות כללי : <%= JSON.stringify(detailsFromApi[0].attributes.skinstatus.health) %>%  </h3>
+               <h3>Acne / פצעים : <%= JSON.stringify(detailsFromApi[0].attributes.skinstatus.acne) %>%  </h3>
+               <h3>stain / כתמי עור : <%= JSON.stringify(detailsFromApi[0].attributes.skinstatus.stain) %>%  </h3>
+               <h3>Dark Circles / עיגולים שחורים : <%= JSON.stringify(detailsFromApi[0].attributes.skinstatus.dark_circle) %>%  </h3>  
+
+                  
+                    
+    </div>
+    
+
+
+</body>
+</html>
