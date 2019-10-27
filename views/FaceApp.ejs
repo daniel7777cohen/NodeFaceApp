@@ -145,7 +145,7 @@ body.loading .modal {
 
             axios({
                 url: CLOUDINARY_URL,
-                method: "POST",
+                      method: "POST",
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
@@ -158,7 +158,7 @@ body.loading .modal {
                     url: 'https://nodefaceapp.herokuapp.com/upload',
                     method: "POST",
                     data: { your_data: res.data.secure_url },
-                    dataType: 'json',
+                    dataType: 'json'
 
                 }).then(function (res) {
                     console.log("great success");
