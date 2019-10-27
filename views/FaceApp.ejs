@@ -163,6 +163,12 @@ body.loading .modal {
                 }).then(function (res) {
                     console.log("great success");
                     console.log(res);
+                    
+                    $("#myform").fadeOut(3);
+                    $("#submitButton").fadeOut(0);
+
+                    $("#upload").fadeIn(5000);
+                    $("#submitButton").fadeIn(8000);
                 }).catch(function (err) {
                     console.log("bad");
                     console.log(err);
@@ -180,11 +186,6 @@ $(document).on({
 });
 */
                  
-                    $("#myform").fadeOut(0);
-                    $("#submitButton").fadeOut(0);
-
-                    $("#upload").fadeIn(18000);
-                    $("#submitButton").fadeIn(100000);
 
                    // document.getElementById("myform").style.display = "none";
                     //document.getElementById("upload").style.display = "block";
