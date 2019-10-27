@@ -160,7 +160,7 @@ app.post('/upload', function (req, res) {
          global.url = url_;
         //res.render("image", { url: url, detailsFromApi: detailsFromApi });
        // return res.render("image", { url: url, detailsFromApi: detailsFromApi});
-       
+       res.end();
       });
 
       }
