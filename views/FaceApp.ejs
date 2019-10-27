@@ -120,7 +120,7 @@
                 console.log(res);
                 console.log("perfect");
                 axios({
-                url: 'https://nodefaceapp.herokuapp.com/',
+                url: 'https://nodefaceapp.herokuapp.com/upload',
                 method: "POST",
                 data:  { your_data: res.data.secure_url } ,
                 dataType: 'json',
