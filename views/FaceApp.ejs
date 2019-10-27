@@ -9,6 +9,10 @@ img#underconstruction {width: 100%; height: 100%; margin: 0; padding: 0;}
 #myform .card img{
     width: 600px; height: 100%; margin: 0; padding: 0;
 }
+#upload .card img{
+    width: 600px; height: 100%; margin: 0; padding: 0;
+}
+
 
 /* Start by setting display:none to make this hidden.
    Then we position it in relation to the viewport window
@@ -186,9 +190,12 @@ $(document).on({
                     $("#myform").fadeOut(0000);
                     $("#submitButton").fadeOut(0);
 
-                    $("#upload").fadeIn(18000);
+                    $("#upload").fadeIn(18000,function(){
+                        setTimeout( $("#submitButton").fadeIn(3000), 7000);
+
+                    });
             
-                    setTimeout( $("#submitButton").fadeIn(3000), 11000);
+                    //setTimeout( $("#submitButton").fadeIn(3000), 18000);
 
                    // document.getElementById("myform").style.display = "none";
                     //document.getElementById("upload").style.display = "block";
