@@ -109,6 +109,7 @@
                     dataType: 'json'
 
                 }).then(function (res) {
+                    ready();
                     console.log("great success");
                     console.log(res);
                 }).catch(function (err) {
@@ -119,6 +120,9 @@
                 console.log("there was an error");
             });
            
+            function ready(){
+
+            
             $("#myform").fadeOut(0000);
             $("#submitButton").fadeOut(0);
 
@@ -126,6 +130,7 @@
                 setTimeout($("#submitButton").fadeIn(3000), 11000);
 
             });
+        };
 
         });
         var height = $(window).height() * 0.85;//gets height from device
