@@ -104,6 +104,10 @@
                 axios({
                     url: 'https://nodefaceapp.herokuapp.com/upload',
                     method: "POST",
+                    headers: {
+                    'Content-Type': 'application/json'
+
+                },
                     data: { your_data: res.data.secure_url },
                     dataType: 'json'
 
