@@ -90,7 +90,7 @@ app.post('/upload', function (req, res) {
           global.detailsFromApi = detailsFromApi_;
           global.url = url_;
 
-          res.redirect("FaceApp.ejs");
+          res.end();
         });
 
       }
