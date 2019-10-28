@@ -64,7 +64,7 @@ app.post('/submit', function (req, res) {
     console.log(element);
   });
   res.render("image", { url: url, detailsFromApi: detailsFromApi });
-
+  res.end();
 
 });
 
