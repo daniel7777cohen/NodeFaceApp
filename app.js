@@ -4,7 +4,7 @@ var express = require('express')
   , cors = require('cors')
   , app = express();
 const corsOptions = {
-  origin: false,
+  origin: true,
   credentials: true
 };
 
@@ -32,7 +32,7 @@ cloudinary.config({
 app.get("/", function (req, res) {
   res.render("FaceApp.ejs");
 });
-app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
+//app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
 
 
 // SET STORAGE(if needed)
