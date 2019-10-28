@@ -7,6 +7,10 @@ const corsOptions = {
   origin: true,
   credentials: true
 };
+app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
+app.listen(80, function(){
+  console.log('CORS-enabled web server listening on port 80');
+});
 //const multer = require('multer');
 var bodyParser = require("body-parser");
 const jsdom = require("jsdom");
@@ -96,11 +100,6 @@ app.post('/upload', function (req, res) {
       }
     });
   } else throw error;
-});
-app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
-
-app.listen(port, function () {
-  console.log('Our app is running on http://localhost:' + port);
 });
 
 
