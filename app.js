@@ -4,7 +4,7 @@ var express = require('express')
   , cors = require('cors')
   , app = express();
 const corsOptions = {
-  origin: true,
+  origin: false,
   credentials: true
 };
 
