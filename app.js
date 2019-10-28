@@ -115,6 +115,6 @@ app.post('/upload', function (req, res) {
 
 
 
-app.listen(8080, function(){
+app.listen(port, function(){
   console.log('CORS-enabled web server listening on port 8080');
 });
