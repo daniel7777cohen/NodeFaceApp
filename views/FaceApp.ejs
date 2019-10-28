@@ -81,72 +81,73 @@
         </div>
     </form>
 
-    <script>
-                function ready() {
-
-$("#submitButton").fadeIn(3000);
-
-};
-        var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dkqvnprcj/upload";
-        var CLOUDINARY_UPLOAD_PRESET = "awshueul";
-        var imgPreview = document.getElementById('img-preview');
-        var fileUpload = document.getElementById('file-upload');
-        fileUpload.addEventListener('change', function (event) {
-            var file = event.target.files[0];
-            var formData = new FormData();
-            formData.append('file', file);
-            formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
-
-            axios({
-                url: CLOUDINARY_URL,
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                data: formData
-            }).then(function (res) {
-                console.log(res);
-                axios({
-                    url: 'https://nodefaceapp.herokuapp.com/upload',
-                    method: "POST",
-                    headers: {
-                    'Content-Type': 'application/json'
-
-                },
-                    data: { your_data: res.data.secure_url },
-                    dataType: 'json'
-
-                }).then(function (res) {
-                     ready();
-                    console.log("great success");
-                    console.log(res);
-                }).catch(function (err) {
-                    alert(err);
-                    console.log("bad");
-                    console.log(err);
-                });
-            }).catch(function (err) {
-                console.log("there was an error");
-            });
-            $("#myform").fadeOut(0000);
-            $("#submitButton").fadeOut(0);
-            $("#upload").fadeIn(20000);
-         
-
-
-        });
-
-        var height = $(window).height() * 0.85;//gets height from device
-        var width = $(window).width(); //gets width from device
-
-        $("#p1").width(width + "px");
-        $("#p1").height(height + "px");
-        $("#p2").width(width + "px");
-        $("#p2").height(height + "px");
-
-    </script>
+   
 
 
 </body>
 
+<script>
+        function ready() {
+
+$("#submitButton").fadeIn(3000);
+
+};
+var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dkqvnprcj/upload";
+var CLOUDINARY_UPLOAD_PRESET = "awshueul";
+var imgPreview = document.getElementById('img-preview');
+var fileUpload = document.getElementById('file-upload');
+fileUpload.addEventListener('change', function (event) {
+    var file = event.target.files[0];
+    var formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+    axios({
+        url: CLOUDINARY_URL,
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        data: formData
+    }).then(function (res) {
+        console.log(res);
+        axios({
+            url: 'https://nodefaceapp.herokuapp.com/upload',
+            method: "POST",
+            headers: {
+            'Content-Type': 'application/json'
+
+        },
+            data: { your_data: res.data.secure_url },
+            dataType: 'json'
+
+        }).then(function (res) {
+             ready();
+            console.log("great success");
+            console.log(res);
+        }).catch(function (err) {
+            alert(err);
+            console.log("bad");
+            console.log(err);
+        });
+    }).catch(function (err) {
+        console.log("there was an error");
+    });
+    $("#myform").fadeOut(0000);
+    $("#submitButton").fadeOut(0);
+    $("#upload").fadeIn(20000);
+ 
+
+
+});
+
+var height = $(window).height() * 0.85;//gets height from device
+var width = $(window).width(); //gets width from device
+
+$("#p1").width(width + "px");
+$("#p1").height(height + "px");
+$("#p2").width(width + "px");
+$("#p2").height(height + "px");
+
+</script>
 </html>
