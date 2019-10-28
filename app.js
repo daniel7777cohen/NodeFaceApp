@@ -27,7 +27,7 @@ cloudinary.config({
   api_secret: '8ESQHQSTHNzYuuvwPxivCuzSwHU'
 });
 
-app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
+//app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
 
 res.header('Access-Control-Allow-Headers', 'Content-Type')
 app.get("/", function (req, res) {
