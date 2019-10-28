@@ -6,7 +6,7 @@ var express = require('express')
 const corsOptions = {
   origin: true,
   credentials: true
-}
+};
 //const multer = require('multer');
 var bodyParser = require("body-parser");
 const jsdom = require("jsdom");
