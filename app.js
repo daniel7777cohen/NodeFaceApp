@@ -8,9 +8,7 @@ const corsOptions = {
   credentials: true
 };
 app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
-app.listen(80, function(){
-  console.log('CORS-enabled web server listening on port 80');
-});
+
 //const multer = require('multer');
 var bodyParser = require("body-parser");
 const jsdom = require("jsdom");
@@ -108,3 +106,6 @@ app.post('/upload', function (req, res) {
 
 
 
+app.listen(8080, function(){
+  console.log('CORS-enabled web server listening on port 8080');
+});
