@@ -7,7 +7,7 @@ const corsOptions = {
   origin: true,
   credentials: true
 };
-app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
+//app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
 
 //const multer = require('multer');
 var bodyParser = require("body-parser");
