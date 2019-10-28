@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-        
     body,
     html {
         display: flex;
@@ -119,18 +118,15 @@
             }).catch(function (err) {
                 console.log("there was an error");
             });
-           
-            function ready(){
-
-            
             $("#myform").fadeOut(0000);
             $("#submitButton").fadeOut(0);
+            $("#upload").fadeIn(20000);
+            function ready() {
 
-            $("#upload").fadeIn(20000, function () {
-                setTimeout($("#submitButton").fadeIn(3000), 11000);
+                setTimeout($("#submitButton").fadeIn(3000), 6000);
 
-            });
-        };
+            };
+
 
         });
         var height = $(window).height() * 0.85;//gets height from device
