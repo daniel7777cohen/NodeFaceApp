@@ -112,6 +112,7 @@
                     console.log("great success");
                     console.log(res);
                 }).catch(function (err) {
+                    alert("bad!");
                     console.log("bad");
                     console.log(err);
                 });
@@ -123,7 +124,7 @@
             $("#upload").fadeIn(20000);
           void  function ready() {
 
-                setTimeout($("#submitButton").fadeIn(3000), 6000);
+                $("#submitButton").fadeIn(3000);
 
             };
 
