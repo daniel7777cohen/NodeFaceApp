@@ -7,7 +7,7 @@ const corsOptions = {
   origin: true,
   credentials: true
 };
-//app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
+
 
 //const multer = require('multer');
 var bodyParser = require("body-parser");
@@ -25,6 +25,15 @@ cloudinary.config({
   cloud_name: 'dkqvnprcj',
   api_key: '756886954695832',
   api_secret: '8ESQHQSTHNzYuuvwPxivCuzSwHU'
+});
+
+app.all('*', (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  // res.header('Access-Control-Allow-Credentials', true);
+  res.header('Content-Type', 'application/json; charset=utf-8')
+  next();
 });
 
 app.get("/", function (req, res) {
