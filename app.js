@@ -27,12 +27,13 @@ cloudinary.config({
   api_secret: '8ESQHQSTHNzYuuvwPxivCuzSwHU'
 });
 
-app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
 
 
 app.get("/", function (req, res) {
   res.render("FaceApp.ejs");
 });
+app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
+
 
 // SET STORAGE(if needed)
 /*
