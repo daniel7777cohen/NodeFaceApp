@@ -27,10 +27,18 @@ cloudinary.config({
   api_secret: '8ESQHQSTHNzYuuvwPxivCuzSwHU'
 });
 
+var allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+  next();
+}
+app.use(allowCrossDomain);
+
 app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
 
 app.get("/", function (req, res) {
-  res.header('Access-Control-Allow-Headers', 'Content-Type')
 
   res.render("FaceApp.ejs");
 });
@@ -61,7 +69,6 @@ app.post('/submit', function (req, res) {
 });
 
 app.post('/upload', function (req, res) {
-  res.header('Access-Control-Allow-Headers', 'Content-Type')
 
   console.log("inside post");
   console.log(req.body.your_data);
