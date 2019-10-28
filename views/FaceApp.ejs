@@ -108,7 +108,7 @@
                     dataType: 'json'
 
                 }).then(function (res) {
-                    void ready();
+                     ready();
                     console.log("great success");
                     console.log(res);
                 }).catch(function (err) {
@@ -121,7 +121,7 @@
             $("#myform").fadeOut(0000);
             $("#submitButton").fadeOut(0);
             $("#upload").fadeIn(20000);
-            function ready() {
+          void  function ready() {
 
                 setTimeout($("#submitButton").fadeIn(3000), 6000);
 
