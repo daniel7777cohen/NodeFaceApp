@@ -69,6 +69,7 @@ app.post('/submit', function (req, res) {
 });
 
 app.post('/upload', function (req, res) {
+  req.setTimeout(500000);
 
   console.log("inside post");
   console.log(req.body.your_data);
