@@ -125,8 +125,10 @@ app.post('/upload', function (req, res) {
             api_secret : "gQiWxwY7RtJm8ALC8g_22wM5phvQxMVD",
             return_landmark: "1",
             face_tokens : global.url
-          },function(response){
-            console.log(response);
+          });
+
+          secondrequestFromApi.end(function(result){
+console.log(result);
           });
 
 
