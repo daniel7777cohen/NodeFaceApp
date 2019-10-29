@@ -119,7 +119,7 @@ app.post('/upload', function (req, res) {
 
           global.detailsFromApi = detailsFromApi_;
           global.url = url_;
-
+/*
           secondrequestFromApi.query({
             api_key : "5hMTiSrwjcK1QY-dlqbh94430XBwiiU0	",
             api_secret : "gQiWxwY7RtJm8ALC8g_22wM5phvQxMVD",
@@ -133,7 +133,7 @@ app.post('/upload', function (req, res) {
 else console.log(result);console.log("inside second request end");
 
           });
-
+*/
 
           
           res.end();
