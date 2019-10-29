@@ -76,15 +76,22 @@ app.post('/submit', function (req, res) {
 app.post('/upload', function (req, res) {
   req.setTimeout(500000);
   
+
+  
   console.log("inside post");
   console.log(req.body.your_data);
 
-  var requestFromApi = unirest("POST", "https://faceplusplus-faceplusplus.p.rapidapi.com/facepp/v3/detect");
+
   if (req.body.your_data) {
+
+    var secondrequestFromApi = unirest("POST", "https://api-us.faceplusplus.com/facepp/v1/face/thousandlandmark");
+    var requestFromApi = unirest("POST", "https://faceplusplus-faceplusplus.p.rapidapi.com/facepp/v3/detect");
+
     console.log("inside if req.body.your_data");
     console.log(req.body.your_data)
     let url_ = req.body.your_data;
 
+    
 
     requestFromApi.query({
       return_attributes: "gender,age,smiling,facequality,eyestatus,emotion,ethnicity,beauty,skinstatus",
@@ -100,22 +107,37 @@ app.post('/upload', function (req, res) {
     requestFromApi.form({});
 
     requestFromApi.end(function (result) {
-      if (result.error) throw new Error(result.error);
+      if (result.error) alert(" Try a different photo or tell Daniel about it :)");
+
       else {
         console.log("i am inside end");
         let detailsFromApi_ = JSON.parse(JSON.stringify(result.body.faces));
 
         detailsFromApi_.forEach(function (element) {
           console.log(element);
+        });
 
           global.detailsFromApi = detailsFromApi_;
           global.url = url_;
 
+          secondrequestFromApi.query({
+            api_key : "5hMTiSrwjcK1QY-dlqbh94430XBwiiU0	",
+            api_secret : "gQiWxwY7RtJm8ALC8g_22wM5phvQxMVD",
+            return_landmark: "1",
+            face_tokens : global.url
+          },function(response){
+            console.log(response);
+          });
+
+
+          
           res.end();
+        }
         });
 
-      }
-    });
+        
+      
+    
   } else alert(" Try a different photo or tell Daniel about it :)");
 });
 
