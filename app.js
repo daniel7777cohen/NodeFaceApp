@@ -107,7 +107,7 @@ app.post('/upload', function (req, res) {
     requestFromApi.form({});
 
     requestFromApi.end(function (result) {
-      if (result.error) alert(" Try a different photo or tell Daniel about it :)");
+      if (result.error) throw result.error;
 
       else {
         console.log("i am inside end");
@@ -133,7 +133,7 @@ app.post('/upload', function (req, res) {
 else console.log(result);console.log("inside second request end");
 
           });
-*/
+
 
           
           res.end();
