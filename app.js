@@ -32,6 +32,11 @@ var allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
 
+  if (req.method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH');
+    return res.status(200).json({});
+};
   next();
 }
 app.use(allowCrossDomain);
@@ -70,11 +75,7 @@ app.post('/submit', function (req, res) {
 
 app.post('/upload', function (req, res) {
   req.setTimeout(500000);
-  if (req.method == "OPTIONS")
-  {
-      res.writeHead(200, {"Content-Type": "application/json"});
-      res.end();
-  }
+  
   console.log("inside post");
   console.log(req.body.your_data);
 
