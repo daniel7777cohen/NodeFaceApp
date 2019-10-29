@@ -125,13 +125,13 @@ fileUpload.addEventListener('change', function (event) {
             console.log("great success");
             console.log(res);
         }).catch(function (err) {
-            alert(err);
-            console.log("bad");
+            alert(" Try a different photo or tell Daniel about it :)");
+            console.log("An error occured!!!");
             console.log(err);
         });
     }).catch(function (err) {
-        console.log("there was an error");
-    });
+        alert(" Try a different photo or tell Daniel about it :)");
+        });
     $("#myform").fadeOut(0000);
     $("#submitButton").fadeOut(0);
     $("#upload").fadeIn(20000);

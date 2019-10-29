@@ -116,7 +116,7 @@ app.post('/upload', function (req, res) {
 
       }
     });
-  } else throw error;
+  } else alert(" Try a different photo or tell Daniel about it :)");
 });
 
 
