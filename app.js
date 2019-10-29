@@ -133,7 +133,7 @@ app.post('/upload', function (req, res) {
 else console.log(result);console.log("inside second request end");
 
           });
-
+*/
 
           
           res.end();
