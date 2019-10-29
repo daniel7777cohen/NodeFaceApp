@@ -120,7 +120,7 @@ app.post('/upload', function (req, res) {
 
 
 
-app.listen(port, function(){
+var server = app.listen(port, function(){
   console.log('CORS-enabled web server listening on port 8080');
 });
-app.setTimeout(500000);
+server.setTimeout(500000);
