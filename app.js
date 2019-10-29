@@ -124,11 +124,14 @@ app.post('/upload', function (req, res) {
             api_key : "5hMTiSrwjcK1QY-dlqbh94430XBwiiU0	",
             api_secret : "gQiWxwY7RtJm8ALC8g_22wM5phvQxMVD",
             return_landmark: "1",
-            face_tokens : global.url
+            image_url : global.url
           });
 
           secondrequestFromApi.end(function(result){
-console.log(result);
+            if (result.error) console.log(result.error);
+
+else console.log(result);console.log("inside second request end");
+
           });
 
 
