@@ -70,7 +70,11 @@ app.post('/submit', function (req, res) {
 
 app.post('/upload', function (req, res) {
   req.setTimeout(500000);
-
+  if (req.method == "OPTIONS")
+  {
+      res.writeHead(200, {"Content-Type": "application/json"});
+      res.end();
+  }
   console.log("inside post");
   console.log(req.body.your_data);
 
