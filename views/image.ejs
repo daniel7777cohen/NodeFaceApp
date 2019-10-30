@@ -67,10 +67,10 @@ window.onload = function() {
   var ctx = c.getContext("2d");
   var img = document.getElementById("face");
   ctx.drawImage(img, 0, 0);
-  console.log(document);
   console.log("-----------------------------------");
-  console.log(window);
 
+  var test = <%- JSON.stringify(detailsFromApi) %>;
+  console.log(test);
   ctx.fillStyle = "#FF0000";
   detailsFromApi.forEach(function(element){
   ctx.fillRect(element.x, element.y, 3, 3);
