@@ -70,8 +70,8 @@ window.onload = function() {
   console.log("-----------------------------------");
 
 
-  var landmarks = <%-JSON.stringify(detailsFromApi[1].landmarks) %> ;
-  console.log(landmarks);
+  var landmarks = <%-JSON.stringify(detailsFromApi[1].landmarks) %> 
+    console.log(landmarks);
   ctx.fillStyle = "#FF0000";
 for (var i=0;i<landmarks.length;i++)
 {
