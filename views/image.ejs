@@ -55,21 +55,24 @@ h3 {
                     
     </div>
 <script>
-
+/*
 const MODEL_URL = '/models';
 
-await faceapi.loadSsdMobilenetv1Model(MODEL_URL);
-await faceapi.loadFaceLandmarkModel(MODEL_URL);
-await faceapi.loadFaceRecognitionModel(MODEL_URL);
+async function start(){await faceapi.loadSsdMobilenetv1Model(MODEL_URL);};
+async function middle(){await faceapi.loadFaceLandmarkModel(MODEL_URL);};
+async function end() {await faceapi.loadFaceRecognitionModel(MODEL_URL);};
+start();
+middle();
+end();
 const input = document.getElementById('face');
-let fullFaceDescriptions = await faceapi.detectAllFaces(input).withFaceLandmarks().withFaceDescriptors();
+let fullFaceDescriptions = async function result(){await faceapi.detectAllFaces(input).withFaceLandmarks().withFaceDescriptors();};
 fullFaceDescriptions = faceapi.resizeResults(fullFaceDescriptions);
 //faceapi.draw.drawDetections(canvas, fullFaceDescriptions);
 faceapi.draw.drawLandmarks(canvas, fullFaceDescriptions,function(res){
   console.log(res);
 });
 
-
+*/
 </script>
 </body>
 </html>
