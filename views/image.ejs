@@ -70,7 +70,7 @@ window.onload = function() {
   console.log("-----------------------------------");
 
   
-  var landmarks = <%=(detailsFromApi.landmarks) %> 
+  var landmarks = <%=(detailsFromApi[1]) %> 
   console.log(landmarks);
   ctx.fillStyle = "#FF0000";
 for (var i=0;i<landmarks.length;i++)
