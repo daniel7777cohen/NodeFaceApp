@@ -92,13 +92,12 @@ app.post('/upload', function (req, res) {
     var requestFromApi = unirest("POST", "https://faceplusplus-faceplusplus.p.rapidapi.com/facepp/v3/detect");
 
     console.log("inside if req.body.your_data");
-    console.log(req.body.your_data)
+    console.log("original url is " +req.body.your_data)
     let url_ = req.body.your_data;
     var n = url_.indexOf("upload");
-    var resizeParameters = "w_1000,h_1600,c_scale/"
-    newurl_ = url_;
-   newurl_ = newurl_.splice(n+6, 0, resizeParameters);//n + upload
-   console.log("new url_ = " + newurl_);
+    var resizeParameters = "/w_1000,h_1600,c_scale"
+   url_ = url_.splice(n+6, 0, resizeParameters);//n + upload
+   console.log("new url_ = " + url_);
     
 
     requestFromApi.query({
