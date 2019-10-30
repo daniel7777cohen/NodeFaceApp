@@ -39,6 +39,10 @@ var allowCrossDomain = function(req, res, next) {
 };
   next();
 }
+String.prototype.splice = function(idx, rem, str) {
+  return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+};
+
 app.use(allowCrossDomain);
 
 app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
@@ -84,17 +88,22 @@ app.post('/upload', function (req, res) {
 
   if (req.body.your_data) {
 
-    var secondrequestFromApi = unirest("POST", "https://api-us.faceplusplus.com/facepp/v1/face/thousandlandmark");
+    //var secondrequestFromApi = unirest("POST", "https://api-us.faceplusplus.com/facepp/v1/face/thousandlandmark");
     var requestFromApi = unirest("POST", "https://faceplusplus-faceplusplus.p.rapidapi.com/facepp/v3/detect");
 
     console.log("inside if req.body.your_data");
     console.log(req.body.your_data)
     let url_ = req.body.your_data;
-
+    var n = url.indexOf("upload");
+    var resizeParameters = "w_1000,h_1600,c_scale/"
+    
+   newurl_ = url_.splice(6, 0, resizeParameters);
+   console.log("new url_ = " + newurl_);
     
 
     requestFromApi.query({
       return_attributes: "gender,age,smiling,facequality,eyestatus,emotion,ethnicity,beauty,skinstatus",
+      return_landmark : "2",
       image_url: url_
     });
 
