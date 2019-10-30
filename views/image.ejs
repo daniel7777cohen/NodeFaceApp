@@ -70,9 +70,9 @@ window.onload = function() {
   console.log("-----------------------------------");
 
   var landmarks = <%- JSON.stringify(detailsFromApi[1]) %>;
-  console.log(landmarks);
+  console.log(landmarks.landmark);
   ctx.fillStyle = "#FF0000";
-  landmarks.forEach(function(element){
+  landmarks.landmark.forEach(function(element){
   ctx.fillRect(element.x, element.y, 3, 3);
 });
 
