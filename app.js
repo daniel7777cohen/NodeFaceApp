@@ -97,7 +97,7 @@ app.post('/upload', function (req, res) {
     var n = url_.indexOf("upload");
     var resizeParameters = "w_1000,h_1600,c_scale/"
     newurl_ = url_;
-   newurl_ = newurl_.splice(6, 0, resizeParameters);
+   newurl_ = newurl_.splice(n, 0, resizeParameters);
    console.log("new url_ = " + newurl_);
     
 
