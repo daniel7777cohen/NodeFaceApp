@@ -93,9 +93,26 @@ app.post('/upload', function (req, res) {
 
     console.log("inside if req.body.your_data");
     console.log("original url is " +req.body.your_data)
+    var MAX_WIDTH = 1000;
+    var MAX_HEIGHT = 1000;
+    var width = req.body.width;
+    var height = req.body.height;
+
+    if (width > height) {
+        if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+        }
+    } else {
+        if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+        }
+    }
+
     let url_ = req.body.your_data;
     var n = url_.indexOf("upload");
-    var resizeParameters = "/w_1000,h_1600,c_scale"
+    var resizeParameters = "/w_"+width+",h_"+height+",c_scale"
    url_ = url_.splice(n+6, 0, resizeParameters);//n + upload
    console.log("new url_ = " + url_);
     

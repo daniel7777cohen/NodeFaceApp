@@ -119,13 +119,15 @@ fileUpload.addEventListener('change', function (event) {
         data: formData
     }).then(function (res) {
         console.log(res);
+        
         axios({
+            
             url: 'https://nodefaceapp.herokuapp.com/upload',
             method: "POST",
             headers: {
             'Content-Type': 'application/json'
         },
-            data: { your_data: res.data.secure_url },
+            data: { your_data: res.data.secure_url ,height: res.data.height,width:res.data.width },
             dataType: 'json'
 
         }).then(function (res) {
