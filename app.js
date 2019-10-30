@@ -95,8 +95,8 @@ app.post('/upload', function (req, res) {
     console.log("original url is " +req.body.your_data)
     var MAX_WIDTH = 1000;
     var MAX_HEIGHT = 1000;
-    var width = req.body.width;
-    var height = req.body.height;
+    var width = Math.round(req.body.width);
+    var height = Math.round(req.body.height);
 
     if (width > height) {
         if (width > MAX_WIDTH) {
@@ -143,7 +143,7 @@ app.post('/upload', function (req, res) {
         });
 
           global.detailsFromApi = detailsFromApi_;
-          global.url = url_;
+         global.url = url_;
 /*
           secondrequestFromApi.query({
             api_key : "5hMTiSrwjcK1QY-dlqbh94430XBwiiU0	",
