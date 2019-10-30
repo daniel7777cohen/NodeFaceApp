@@ -65,7 +65,9 @@ const input = document.getElementById('face');
 let fullFaceDescriptions = await faceapi.detectAllFaces(input).withFaceLandmarks().withFaceDescriptors();
 fullFaceDescriptions = faceapi.resizeResults(fullFaceDescriptions);
 //faceapi.draw.drawDetections(canvas, fullFaceDescriptions);
-faceapi.draw.drawLandmarks(canvas, fullFaceDescriptions);
+faceapi.draw.drawLandmarks(canvas, fullFaceDescriptions,function(res){
+  console.log(res);
+});
 
 
 </script>
