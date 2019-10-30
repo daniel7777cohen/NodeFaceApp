@@ -94,10 +94,10 @@ app.post('/upload', function (req, res) {
     console.log("inside if req.body.your_data");
     console.log(req.body.your_data)
     let url_ = req.body.your_data;
-    var n = url.indexOf("upload");
+    var n = url_.indexOf("upload");
     var resizeParameters = "w_1000,h_1600,c_scale/"
-    
-   newurl_ = url_.splice(6, 0, resizeParameters);
+    newurl_ = url_;
+   newurl_ = newurl_.splice(6, 0, resizeParameters);
    console.log("new url_ = " + newurl_);
     
 
