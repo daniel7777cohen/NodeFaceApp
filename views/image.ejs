@@ -32,7 +32,7 @@ h3 {
     </div>
 
     <div class = "container">
-
+<%= if (detailsFromApi[0].attributes.emotion.happiness) {%>
                <h1>: תוצאות האבחנה </h1>
                 <h2>רגשות-</h2>
                 <h3> Happiness : <%= JSON.stringify(detailsFromApi[0].attributes.emotion.happiness) %></h3>
@@ -52,7 +52,10 @@ h3 {
                <h3>Acne / פצעים : <%= JSON.stringify(detailsFromApi[0].attributes.skinstatus.acne) %>%  </h3>
                <h3>stain / כתמי עור : <%= JSON.stringify(detailsFromApi[0].attributes.skinstatus.stain) %>%  </h3>
                <h3>Dark Circles / עיגולים שחורים : <%= JSON.stringify(detailsFromApi[0].attributes.skinstatus.dark_circle) %>%  </h3>          
-                    
+                   <% } else { %>
+                     <h1> Something is wrong with your photo ! please try again with a different one. Dont give up ! :)}  
+                        <% }  %>
+
     </div>
 <script>
 /*
