@@ -32,7 +32,7 @@ h3 {
     </div>
 
     <div class = "container">
-<% if (detailsFromApi[0].attributes.emotion.happiness!== undefined) {%>
+<% if (detailsFromApi[0]!== undefined) {%>
                <h1>: תוצאות האבחנה </h1>
                 <h2>רגשות-</h2>
                 <h3> Happiness : <%= JSON.stringify(detailsFromApi[0].attributes.emotion.happiness) %></h3>
