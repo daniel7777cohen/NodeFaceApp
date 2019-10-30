@@ -69,10 +69,10 @@ window.onload = function() {
   ctx.drawImage(img, 0, 0);
   console.log("-----------------------------------");
 
-  var test = <%- JSON.stringify(detailsFromApi) %>;
-  console.log(test);
+  var landmarks = <%- JSON.stringify(detailsFromApi[1]) %>;
+  console.log(landmarks);
   ctx.fillStyle = "#FF0000";
-  detailsFromApi.forEach(function(element){
+  landmarks.forEach(function(element){
   ctx.fillRect(element.x, element.y, 3, 3);
 });
 
