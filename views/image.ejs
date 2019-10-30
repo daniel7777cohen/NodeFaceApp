@@ -27,7 +27,7 @@ h3 {
 
     <div class = "Container">
 
-            <img src = "<%=url%>">
+            <img id = "face" src = "<%=url%>">
 
     </div>
 
@@ -54,6 +54,20 @@ h3 {
                <h3>Dark Circles / עיגולים שחורים : <%= JSON.stringify(detailsFromApi[0].attributes.skinstatus.dark_circle) %>%  </h3>          
                     
     </div>
+<script>
 
+const MODEL_URL = '/models';
+
+await faceapi.loadSsdMobilenetv1Model(MODEL_URL);
+await faceapi.loadFaceLandmarkModel(MODEL_URL);
+await faceapi.loadFaceRecognitionModel(MODEL_URL);
+const input = document.getElementById('face');
+let fullFaceDescriptions = await faceapi.detectAllFaces(input).withFaceLandmarks().withFaceDescriptors();
+fullFaceDescriptions = faceapi.resizeResults(fullFaceDescriptions);
+//faceapi.draw.drawDetections(canvas, fullFaceDescriptions);
+faceapi.draw.drawLandmarks(canvas, fullFaceDescriptions);
+
+
+</script>
 </body>
 </html>
