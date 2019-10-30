@@ -56,17 +56,25 @@ h3 {
                      <h1> Something is wrong with your photo ! please try again with a different one. Dont give up ! :)}  
                         <% }  %>
 
+                        <p>Canvas:</p>
+<canvas id="myCanvas" width="1000" height="1000">
+</canvas>
+
     </div>
 <script>
-var canvas = document.getElementById("face");
-var ctx = canvas.getContext("2d");
-ctx.fillStyle = "#FF0000";
-var landmark = detailsFromApi[0];
-landmark.forEach(function(element){
-  ctx.fillRect(element.x,element.y,3,3);
+window.onload = function() {
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  var img = document.getElementById("face");
+  ctx.drawImage(img, 0, 0);
+
+  ctx.fillStyle = "#FF0000";
+  detailsFromApi.forEach(function(element){
+    ctx.fillRect(element.x, element.y, 3, 3);
 
 });
 
+}
 /*
 const MODEL_URL = '/models';
 
