@@ -95,8 +95,8 @@ app.post('/upload', function (req, res) {
     console.log("original url is " +req.body.your_data)
     var MAX_WIDTH = 1000;
     var MAX_HEIGHT = 1000;
-    var width = Math.round(req.body.width);
-    var height = Math.round(req.body.height);
+    var width = (req.body.width);
+    var height = (req.body.height);
 
     if (width > height) {
         if (width > MAX_WIDTH) {
@@ -112,7 +112,7 @@ app.post('/upload', function (req, res) {
 
     let url_ = req.body.your_data;
     var n = url_.indexOf("upload");
-    var resizeParameters = "/w_"+width+",h_"+height+",c_scale"
+    var resizeParameters = "/w_"+Math.round(width)+",h_"+Math.round(height)+",c_scale"
    url_ = url_.splice(n+6, 0, resizeParameters);//n + upload
    console.log("new url_ = " + url_);
     
