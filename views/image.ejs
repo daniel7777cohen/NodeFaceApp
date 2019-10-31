@@ -33,6 +33,9 @@
     <img id="face" src="<%=url%>">
 
   </div>
+  <p>Canvas:</p>
+  <canvas id="myCanvas" width="1000" height="1000">
+  </canvas>
 
   <div class="container">
     <% if (detailsFromApi[0]!== undefined) {%>
@@ -62,16 +65,16 @@
     <h1> Something is wrong with your photo ! please try again with a different one. Dont give up ! :)}
       <% }  %>
 
-      <p>Canvas:</p>
-      <canvas id="myCanvas" width="1000" height="1000">
-      </canvas>
-
+      
   </div>
   <script>
     window.onload = function () {
+
       var c = document.getElementById("myCanvas");
       var ctx = c.getContext("2d");
       var img = document.getElementById("face");
+      document.getElementById('face').style.visibility = 'hidden';
+
        ctx.drawImage(img, 0, 0);
       console.log("-----------------------------------");
 
@@ -82,12 +85,12 @@
       //console.log(x[key].x + x[key].y);
       // }
       // console.log("--------------");
-      ctx.fillStyle = "#FF0000";
+      ctx.fillStyle = "#4B0082";
 
      <% for (var key in detailsFromApi[0].landmark) { %>
      var x = (<%= detailsFromApi[0].landmark[key].x %>);
         var y = (<%= detailsFromApi[0].landmark[key].y %>);
-        ctx.fillRect(x, y, 3, 3);
+        ctx.fillRect(x, y, 5, 5);
         console.log(x + "," + y);
      <% } %>
 
