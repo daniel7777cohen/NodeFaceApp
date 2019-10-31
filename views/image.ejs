@@ -27,15 +27,14 @@
       color: DarkSlateGray;
     }
   </style>
+ <p>Canvas:</p>
+ <canvas id="myCanvas" width="1000" height="1000">
+ </canvas>
 
   <div class="Container">
-
     <img id="face" src="<%=url%>">
-
   </div>
-  <p>Canvas:</p>
-  <canvas id="myCanvas" width="1000" height="1000">
-  </canvas>
+ 
 
   <div class="container">
     <% if (detailsFromApi[0]!== undefined) {%>
@@ -69,12 +68,16 @@
   </div>
   <script>
     window.onload = function () {
-
+      function removeDummy() {
+  var elem = document.getElementById('face');
+  elem.parentNode.removeChild(elem);
+  return false;
+}
       var c = document.getElementById("myCanvas");
       var ctx = c.getContext("2d");
       var img = document.getElementById("face");
-      document.getElementById('face').style.visibility = 'hidden';
-
+    //  document.getElementById('face').style.visibility = 'hidden';
+removeDummy();
        ctx.drawImage(img, 0, 0);
       console.log("-----------------------------------");
 
@@ -90,7 +93,7 @@
      <% for (var key in detailsFromApi[0].landmark) { %>
      var x = (<%= detailsFromApi[0].landmark[key].x %>);
         var y = (<%= detailsFromApi[0].landmark[key].y %>);
-        ctx.fillRect(x, y, 5, 5);
+        ctx.fillRect(x, y, 2, 2);
         console.log(x + "," + y);
      <% } %>
 
