@@ -69,11 +69,9 @@ window.onload = function() {
  // ctx.drawImage(img, 0, 0);
   console.log("-----------------------------------");
 
-
-  var str = <%-JSON.stringify(detailsFromApi[1].landmark) %> 
-  console.log(str[0]);
-  var strreal = "string";
-  console.log(strreal);
+var x = "<%=detailsFromApi%>";
+var landmark = x[0];
+console.log(x);
   console.log("--------------");
     //var landmarks = JSON.parse(str,function(res){console.log(res)});
     //console.log(landmarks);
