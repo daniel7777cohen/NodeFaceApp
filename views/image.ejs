@@ -69,14 +69,13 @@ window.onload = function() {
  // ctx.drawImage(img, 0, 0);
   console.log("-----------------------------------");
 
-  var todos = <%-JSON.stringify(detailsFromApi)%>;
-  for (var item of todos) {
+  var x = <%-JSON.stringify(detailsFromApi)%>;
+  for (var item of x[landmark]) {
     console.log(item)
   }
   console.log("--------------");
     //var landmarks = JSON.parse(str,function(res){console.log(res)});
     //console.log(landmarks);
-
   ctx.fillStyle = "#FF0000";
 for (var i=0;i<landmarks.length;i++)
 {
