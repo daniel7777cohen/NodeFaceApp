@@ -9,6 +9,10 @@ const corsOptions = {
 };
 
 
+
+
+
+
 //const multer = require('multer');
 var bodyParser = require("body-parser");
 const jsdom = require("jsdom");
@@ -179,5 +183,6 @@ else console.log(result);console.log("inside second request end");
 
 var server = app.listen(port, function(){
   console.log('CORS-enabled web server listening on port 8080');
+   
 });
 server.setTimeout(500000);
