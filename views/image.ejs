@@ -69,7 +69,7 @@ window.onload = function() {
  // ctx.drawImage(img, 0, 0);
   console.log("-----------------------------------");
 
-  var x = <%-JSON.stringify(detailsFromApi[0].landmark)%>;
+  var x = <%-JSON.stringify(detailsFromApi[0].landmark[0])%>;
 
   console.log(x);
   for (var item of x) {
