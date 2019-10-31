@@ -27,7 +27,7 @@
       color: DarkSlateGray;
     }
   </style>
- <p>Canvas:</p>
+
  <canvas id="myCanvas" width="1000" height="1000">
  </canvas>
 
@@ -67,12 +67,14 @@
       
   </div>
   <script>
-    window.onload = function () {
-      function removeDummy() {
+
+function removeDummy() {
   var elem = document.getElementById('face');
   elem.parentNode.removeChild(elem);
   return false;
 }
+    window.onload = function () {
+   
       var c = document.getElementById("myCanvas");
       var ctx = c.getContext("2d");
       var img = document.getElementById("face");
@@ -81,7 +83,6 @@ removeDummy();
        ctx.drawImage(img, 0, 0);
       console.log("-----------------------------------");
 
-      //var x = <%-JSON.stringify(detailsFromApi[0].landmark)%>;
 
       //console.log(x);
       //for (var key in x) { 
