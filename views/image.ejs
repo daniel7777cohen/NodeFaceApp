@@ -90,14 +90,15 @@ removeDummy();
       // }
       // console.log("--------------");
       ctx.fillStyle = "#4B0082";
+      <% if (detailsFromApi[0]!== undefined) {%>
 
      <% for (var key in detailsFromApi[0].landmark) { %>
      var x = (<%= detailsFromApi[0].landmark[key].x %>);
         var y = (<%= detailsFromApi[0].landmark[key].y %>);
-        ctx.fillRect(x, y, 5, 5);
-        console.log(x + "," + y);
+        ctx.fillRect(x, y, 7, 7);
+        //console.log(x + "," + y);
      <% } %>
-
+    
 
 
   //console.log("--------------");
