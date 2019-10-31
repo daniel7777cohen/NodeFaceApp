@@ -94,7 +94,7 @@ removeDummy();
      <% for (var key in detailsFromApi[0].landmark) { %>
      var x = (<%= detailsFromApi[0].landmark[key].x %>);
         var y = (<%= detailsFromApi[0].landmark[key].y %>);
-        ctx.fillRect(x, y, 2, 2);
+        ctx.fillRect(x, y, 5, 5);
         console.log(x + "," + y);
      <% } %>
 
