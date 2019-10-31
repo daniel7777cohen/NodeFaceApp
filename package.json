@@ -24,9 +24,6 @@
     "jsdom": "^15.2.0",
     "multer": "^1.4.2",
     "nodemailer": "^6.3.1",
-    "play-sound": "^1.1.3",
-    "soundplayer": "^1.1.1",
-    "tinify": "^1.6.0-beta.2",
     "unirest": "^0.6.0"
   }
 }

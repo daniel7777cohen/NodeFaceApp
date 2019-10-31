@@ -89,15 +89,13 @@
 <script>
 
 
-
         function ready() {
 
 $("#submitButton").fadeIn(3000);
 
 };
 
-
-    
+   
 var CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dkqvnprcj/upload";
 var CLOUDINARY_UPLOAD_PRESET = "awshueul";
 var fileUpload = document.getElementById('file-upload');
@@ -105,8 +103,8 @@ fileUpload.addEventListener('change', function (event) {
    // ResizeImage(event.target);
     //var img = new Image();
     //img.src = "/resized.png";
-   // var audio = new Audio("https://www.youtube.com/watch?v=rYelEUVQ50g");
-//audio.play();
+  
+
     var file = event.target.files[0];
     var formData = new FormData();
     formData.append('file', file);

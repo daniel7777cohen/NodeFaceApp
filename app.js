@@ -8,7 +8,18 @@ const corsOptions = {
   credentials: true
 };
 
+var readFile=function(req, res){
+  var fs = require('fs');
+  var returnData = {};
 
+  fs.readFile('C:\Users\danie\Downloads\Westworld.mp3', function(err, file){
+      var base64File = new Buffer(file, 'binary').toString('base64');
+console.log(file);
+      returnData.fileContent = base64File;
+
+      res.json(returnData);
+  });
+}
 
 
 
