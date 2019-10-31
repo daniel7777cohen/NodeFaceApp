@@ -69,14 +69,20 @@ window.onload = function() {
  // ctx.drawImage(img, 0, 0);
   console.log("-----------------------------------");
 
-  var x = <%-JSON.stringify(detailsFromApi[0].landmark[0])%>;
+  var x = <%-JSON.stringify(detailsFromApi[0].landmark)%>;
 
   console.log(x);
-  for (var item of x) {
-    console.log(item);
-  }
+   for (var key in x) { 
+     console.log(x[key].x + x[ley].y);
+     console.log("--------------");
+
+     <% for (var key in detailsFromApi[0].landmark) { %>
+     console.log(<%= detailsFromApi[0].landmark[key].Url %>);
+     <% } %>
+
+
   
-  console.log("--------------");
+  //console.log("--------------");
     //var landmarks = JSON.parse(str,function(res){console.log(res)});
     //console.log(landmarks);
   ctx.fillStyle = "#FF0000";
@@ -84,14 +90,14 @@ for (var i=0;i<landmarks.length;i++)
 {
   var element = landmarks[i];
   ctx.fillRect(element.x, element.y, 3, 3);
-  console.log(element.x+","+element.y);
+  //console.log(element.x+","+element.y);
 }
-console.log("----------------");
+//console.log("----------------");
 for (var i=0;i<landmarks[landmark].length;i++)
 {
   var element = landmarks[landmark][i];
   ctx.fillRect(element.x, element.y, 3, 3);
-  console.log(element.x+","+element.y);
+  //console.log(element.x+","+element.y);
 }
 
 
