@@ -71,10 +71,10 @@ window.onload = function() {
 
 
   var str = <%-JSON.stringify(detailsFromApi[1].landmark) %> 
-  console.log(str);
+  //console.log(str);
 console.log("--------------");
-    var landmarks = JSON.parse(str,function(res){console.log(res)});
-    console.log(landmarks);
+    //var landmarks = JSON.parse(str,function(res){console.log(res)});
+    console.log(str[contour_chin]);
 
   ctx.fillStyle = "#FF0000";
 for (var i=0;i<landmarks.length;i++)
