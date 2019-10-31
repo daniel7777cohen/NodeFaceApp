@@ -73,12 +73,12 @@ window.onload = function() {
 
   console.log(x);
    for (var key in x) { 
-     console.log(x[key].x + x[ley].y);
+     console.log(x[key].x + x[key].y);
    }
      console.log("--------------");
 
      <% for (var key in detailsFromApi[0].landmark) { %>
-     console.log(<%= detailsFromApi[0].landmark[key].Url %>);
+     console.log(<%= detailsFromApi[0].landmark[key].x %>);
      <% } %>
 
 
