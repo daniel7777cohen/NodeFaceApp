@@ -70,11 +70,11 @@ window.onload = function() {
   console.log("-----------------------------------");
 
 
-  var str = <%-JSON.stringify(detailsFromApi[1]) %> 
+  var str = <%-JSON.stringify(detailsFromApi[1].landmark) %> 
   console.log(str);
 console.log("--------------");
-    var landmarks = JSON.parse(str);
-    console.log(landmarks[landmark]);
+    var landmarks = JSON.parse(str,function(res){console.log(res)});
+    console.log(landmarks);
 
   ctx.fillStyle = "#FF0000";
 for (var i=0;i<landmarks.length;i++)
