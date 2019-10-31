@@ -73,9 +73,9 @@ window.onload = function() {
   var landmarks = <%-JSON.stringify(detailsFromApi[1]) %> 
     console.log(landmarks.landmark);
   ctx.fillStyle = "#FF0000";
-for (var i=0;i<landmarks.length;i++)
+for (var i=0;i<landmarks.landmark.length;i++)
 {
-  var element = landmarks[i];
+  var element = landmarks.landmark[i];
   ctx.fillRect(element.x, element.y, 3, 3);
 }
 
