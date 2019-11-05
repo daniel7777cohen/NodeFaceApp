@@ -1,0 +1,12 @@
+{
+      faceset_token: '0369b95b7dec263e2b5f022a2600a0e4',
+      outer_id: '',
+      display_name: 'Animals',
+      tags: ''
+    },
+    {
+      faceset_token: '1c0d38a898eef4ce12d01e0aced20602',
+      outer_id: '',
+      display_name: 'Animals',
+      tags: ''
+    }
