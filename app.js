@@ -7,7 +7,7 @@ const corsOptions = {
   origin: true,
   credentials: true
 };
-
+var dictionary;
 //const multer = require('multer');
 var bodyParser = require("body-parser");
 const jsdom = require("jsdom");
@@ -51,7 +51,7 @@ app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other rout
 app.get("/", function (req, res) {
   
   var fs = require('fs');
-  var dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'));
+ dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'));
 
   res.render("FaceApp.ejs");
 });
@@ -169,9 +169,10 @@ app.post('/upload', function (req, res) {
                   });
         */
        console.log("getting inside parameters");
+       console.log("facetoken of client is ")
 //for Search Api
 var parameters = {
-  face_token: result.body.faces[0].face_token,
+  image_url : url_,
   faceset_token : '0369b95b7dec263e2b5f022a2600a0e4',
 
 };
@@ -184,7 +185,9 @@ facepp.post('/search', parameters, function (err, res) {
   else {
     console.log("i am inside post of /search !!!");
     console.log(res);
-    console.log(dictionary[res.face_token]);
+    console.log ("url result searched client image inside faceset :");
+    console.log(dictionary[res.results.face_token]);
+    console.log("confidence of "+res.results.confidence );
   }
 
 });
