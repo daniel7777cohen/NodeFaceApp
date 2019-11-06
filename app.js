@@ -168,9 +168,10 @@ app.post('/upload', function (req, res) {
         
                   });
         */
+       console.log("getting inside parameters");
 //for Search Api
 var parameters = {
-  face_token: result.faces[0].face_token,
+  face_token: result.body.faces[0].face_token,
   faceset_token : '0369b95b7dec263e2b5f022a2600a0e4',
 
 };
@@ -179,7 +180,10 @@ facepp.post('/search', parameters, function (err, res) {
   {
     console.log(err);
   }
-  else {console.log(res);
+
+  else {
+    console.log("i am inside post of /search !!!");
+    console.log(res);
     console.log(dictionary[res.face_token]);
   }
 
