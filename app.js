@@ -183,7 +183,7 @@ facepp.post('/search', parameters, function (err, res) {
 
   else {
     var fs = require('fs');
-    dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'),function(result){
+    dictionary = (JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8')),function(result){
       console.log(result);
       console.log(dictionary['9f196821f1f0e528f2f5afe855169518']);
       console.log("i am inside post of /search !!!");
