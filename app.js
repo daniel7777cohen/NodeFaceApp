@@ -50,8 +50,7 @@ app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other rout
 
 app.get("/", function (req, res) {
   
-  var fs = require('fs');
- dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'));
+ 
 
   res.render("FaceApp.ejs");
 });
@@ -183,11 +182,15 @@ facepp.post('/search', parameters, function (err, res) {
   }
 
   else {
+    var fs = require('fs');
+    dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'));
     console.log("i am inside post of /search !!!");
     console.log(res);
     console.log ("url result searched client image inside faceset :");
+    console.log(res.results.face_token);
+    console.log("---------");
     console.log(dictionary[res.results.face_token]);
-    console.log("confidence of "+res.results.confidence );
+    console.log("confidence of "+res.results[0] );
   }
 
 });
