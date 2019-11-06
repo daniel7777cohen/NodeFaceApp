@@ -183,17 +183,17 @@ facepp.post('/search', parameters, function (err, res) {
 
   else {
     var fs = require('fs');
-    dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'));
-    console.log(dictionary['9f196821f1f0e528f2f5afe855169518']);
-    console.log("i am inside post of /search !!!");
-    console.log(res);
-    console.log ("url result searched client image inside faceset :");
-    console.log(res.results);
-    console.log(res.results[0].face_token);
-
-    console.log("---------");
-    console.log(dictionary[res.results[0].face_token]);
-    console.log("confidence of "+res.results[0].confidence );
+    dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'),function(result){
+      console.log(result);
+      console.log(dictionary['9f196821f1f0e528f2f5afe855169518']);
+      console.log("i am inside post of /search !!!");
+      console.log(res);
+      console.log ("url result searched client image inside faceset :");  
+      console.log("---------");
+      console.log(dictionary[res.results[0].face_token]);
+      console.log("confidence of "+res.results[0].confidence );
+    });
+  
   }
 
 });
