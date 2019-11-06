@@ -51,42 +51,7 @@ app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other rout
 app.get("/", function (req, res) {
   
   var fs = require('fs');
-
-
-  var LineByLineReader = require('line-by-line'),
-  lr = new LineByLineReader('facetokens.txt');
-
-lr.on('error', function (err) {
-// 'err' contains error object
-});
-
-//lr.on('line', function (line) {
-// pause emitting of lines...
-//lr.pause();
-
-
-
-/*
-if(res.faces&&res.faces[0])
-{
-  console.log(res.faces[0]);
-  fs.appendFileSync('facetokens.txt', res.faces[0].face_token + "\n");
-  lr.resume();
-
-     // ...and continue emitting lines.
-}else  lr.resume();
-});
-*/
-// ...do your asynchronous line processing..
-
-
-
-
-//});
-
-lr.on('end', function () {
-// All lines are read, file is closed now.
-});
+  var dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'));
 
   res.render("FaceApp.ejs");
 });
@@ -159,21 +124,7 @@ app.post('/upload', function (req, res) {
     url_ = url_.splice(n + 6, 0, resizeParameters);//n + upload
     console.log("new url_ = " + url_);
 
-//for Search Api
-    var parameters = {
-      image_url: url_,
-      faceset_token : '1c0d38a898eef4ce12d01e0aced20602',
-   
-    };
-    facepp.post('/search', parameters, function (err, res) {
-      if(err)
-      {
-        console.log(err);
-      }
-      else {console.log(res);
-      }
-    
-    });
+
 
     requestFromApi.query({
       return_attributes: "gender,age,smiling,facequality,eyestatus,emotion,ethnicity,beauty,skinstatus",
@@ -217,7 +168,22 @@ app.post('/upload', function (req, res) {
         
                   });
         */
+//for Search Api
+var parameters = {
+  face_token: result.faces[0].face_token,
+  faceset_token : '0369b95b7dec263e2b5f022a2600a0e4',
 
+};
+facepp.post('/search', parameters, function (err, res) {
+  if(err)
+  {
+    console.log(err);
+  }
+  else {console.log(res);
+    console.log(dictionary[res.face_token]);
+  }
+
+});
 
         res.end();
       }
