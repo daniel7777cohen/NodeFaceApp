@@ -50,14 +50,9 @@ app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other rout
 app.get("/", function (req, res) {
   
   var fs = require('fs');
-  var obj = fs.readFileSync('Dictionary.txt', 'utf8',function(){
-    console.log("Read successfuled");
-  });
+  var obj = fs.readFileSync('NewDictionary.txt', 'utf8');
   global.dictionary = JSON.parse(obj);
 
-  //global.dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'));
-  console.log("printing test of key");
-  console.log(dictionary);
 
   res.render("FaceApp.ejs");
 });
