@@ -61,9 +61,19 @@
     <h3>Dark Circles / עיגולים שחורים : <%= JSON.stringify(detailsFromApi[0].attributes.skinstatus.dark_circle) %>%
     </h3>
     <% } else { %>
-    <h1> Something is wrong with your photo ! please try again with a different one. Dont give up ! :)}
+    <h1> Something is wrong with your photo ! please try again with a different one. Dont give up ! :)
       <% }  %>
+      <% if (animal) {%>
+        <h1> According to face analysis only, what animal are you? --- ?לפי ניתוח תווי הפנים בלבד,לאיזה בעל חיים את/ה דומה </h1>
 
+        <img src = <%=animal>
+        
+        <h1>Animal Match : <%=confidence%>% . </h1>          
+        
+       <h1>Take It Or Leave It , Computers Are Smarters Than Humans</h1>
+        <% } %>
+        
+   
       
   </div>
   <script>

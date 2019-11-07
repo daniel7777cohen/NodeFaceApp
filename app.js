@@ -77,7 +77,7 @@ app.post('/submit', function (req, res) {
   detailsFromApi.forEach(function (element) {
     console.log(element);
   });
-  res.render("image", { url: url, detailsFromApi: detailsFromApi });
+  res.render("image", { url: url, detailsFromApi: detailsFromApi,animal:animal,confidence:confidence });
   res.end();
 
 });
@@ -192,7 +192,8 @@ facepp.post('/search', parameters, function (err, res) {
       console.log("---------");
       console.log(dictionary[res.results[0].face_token]);
       console.log("confidence of "+res.results[0].confidence );
-    
+      global.animal = dictionary[res.results[0].face_token];
+      global.confidence = res.results[0].confidence;
   
   }
 
