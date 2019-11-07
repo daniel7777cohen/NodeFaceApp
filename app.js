@@ -7,7 +7,6 @@ const corsOptions = {
   origin: true,
   credentials: true
 };
-var dictionary;
 //const multer = require('multer');
 var bodyParser = require("body-parser");
 const jsdom = require("jsdom");
@@ -50,7 +49,8 @@ app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other rout
 
 app.get("/", function (req, res) {
   
- 
+  var fs = require('fs');
+  global.dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'));
 
   res.render("FaceApp.ejs");
 });
@@ -182,9 +182,8 @@ facepp.post('/search', parameters, function (err, res) {
   }
 
   else {
-    var fs = require('fs');
-    dictionary = (JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8')),function(result){
-      console.log(result);
+    
+
       console.log(dictionary['9f196821f1f0e528f2f5afe855169518']);
       console.log("i am inside post of /search !!!");
       console.log(res);
@@ -192,7 +191,7 @@ facepp.post('/search', parameters, function (err, res) {
       console.log("---------");
       console.log(dictionary[res.results[0].face_token]);
       console.log("confidence of "+res.results[0].confidence );
-    });
+    
   
   }
 
