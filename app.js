@@ -50,7 +50,14 @@ app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other rout
 app.get("/", function (req, res) {
   
   var fs = require('fs');
-  global.dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'));
+  var obj = fs.readFileSync('Dictionary.txt', 'utf8',function(){
+    console.log("Read successfuled");
+  });
+  global.dictionary = JSON.parse(obj);
+
+  //global.dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'));
+  console.log("printing test of key");
+  console.log(dictionary['9f196821f1f0e528f2f5afe855169518']);
 
   res.render("FaceApp.ejs");
 });
@@ -168,7 +175,6 @@ app.post('/upload', function (req, res) {
                   });
         */
        console.log("getting inside parameters");
-       console.log("facetoken of client is ")
 //for Search Api
 var parameters = {
   image_url : url_,
