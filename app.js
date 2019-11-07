@@ -57,7 +57,7 @@ app.get("/", function (req, res) {
 
   //global.dictionary = JSON.parse(fs.readFileSync('Dictionary.txt', 'utf8'));
   console.log("printing test of key");
-  console.log(dictionary['9f196821f1f0e528f2f5afe855169518']);
+  console.log(dictionary);
 
   res.render("FaceApp.ejs");
 });
