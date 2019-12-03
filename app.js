@@ -9,9 +9,6 @@ const corsOptions = {
 };
 //const multer = require('multer');
 var bodyParser = require("body-parser");
-const jsdom = require("jsdom");
-const { window } = new jsdom.JSDOM(`...`);
-var $ = require("jquery")(window);
 var port = process.env.PORT || 8080;
 app.use(bodyParser.urlencoded({
   extended: true
@@ -37,23 +34,18 @@ var allowCrossDomain = function (req, res, next) {
   };
   next();
 }
+app.use(allowCrossDomain);
+app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
+
 String.prototype.splice = function (idx, rem, str) {
   return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
 };
 
-app.use(allowCrossDomain);
-
-app.options('*', cors(corsOptions)); // preflight OPTIONS; put before other routes
-
-
-
 app.get("/", function (req, res) {
   
   var fs = require('fs');
-  var obj = fs.readFileSync('NewDictionary.txt', 'utf8');
+  var obj = fs.readFileSync('NewDictionary.txt', 'utf8');//read dictionary of 'token' : 'url'
   global.dictionary = JSON.parse(obj);
-
-
   res.render("FaceApp.ejs");
 });
 
@@ -84,16 +76,12 @@ app.post('/submit', function (req, res) {
 
 app.post('/upload', function (req, res) {
   req.setTimeout(500000);
-
-
-
   console.log("inside post");
   console.log(req.body.your_data);
 
-
   if (req.body.your_data) {
 
-    var facepp = require('face-plusplus-node');
+  var facepp = require('face-plusplus-node');
   facepp.setApiKey('5hMTiSrwjcK1QY-dlqbh94430XBwiiU0');
   facepp.setApiSecret('gQiWxwY7RtJm8ALC8g_22wM5phvQxMVD');
 
@@ -106,7 +94,7 @@ app.post('/upload', function (req, res) {
     var MAX_HEIGHT = 1000;
     var width = (req.body.width);
     var height = (req.body.height);
-
+//compression
     if (width > height) {
       if (width > MAX_WIDTH) {
         height *= MAX_WIDTH / width;
@@ -154,21 +142,7 @@ app.post('/upload', function (req, res) {
 
         global.detailsFromApi = detailsFromApi_;
         global.url = url_;
-        /*
-                  secondrequestFromApi.query({
-                    api_key : "5hMTiSrwjcK1QY-dlqbh94430XBwiiU0	",
-                    api_secret : "gQiWxwY7RtJm8ALC8g_22wM5phvQxMVD",
-                    return_landmark: "1",
-                    image_url : global.url
-                  });
         
-                  secondrequestFromApi.end(function(result){
-                    if (result.error) console.log(result.error);
-        
-        else console.log(result);console.log("inside second request end");
-        
-                  });
-        */
        console.log("getting inside parameters");
 //for Search Api
 var parameters = {
@@ -184,15 +158,7 @@ facepp.post('/search', parameters, function (err, res) {
 
   else {
     
-
-      console.log(dictionary['9f196821f1f0e528f2f5afe855169518']);
-      console.log("i am inside post of /search !!!");
-      console.log(res);
-      console.log ("url result searched client image inside faceset :");  
-      console.log("---------");
-      console.log(dictionary[res.results[0].face_token]);
-      console.log("confidence of "+res.results[0].confidence );
-      global.animal = dictionary[res.results[0].face_token];
+      global.animal = dictionary[res.results[0].face_token];//get url from local dictionary, using the recent created token from client.
       global.confidence = res.results[0].confidence;
   
   }
