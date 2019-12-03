@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+  @media only screen and (max-width: 768px) {
 
+    /* For mobile phones: */
+    [class*="col-"] {
+      width: 100%;
+    }
+  }
+  
+  body {
+    background-color: linen;
+  }
+  
+  h3 {
+    font-weight: bold;
+    font-size-adjust: 0.90;
+  
+    color: DarkSlateGray;
+  }
+  
+</style>
 <head>
   <meta charset="utf-8">
   <title>IMAGE</title>
 </head>
 
 <body>
-  <style>
-    @media only screen and (max-width: 768px) {
-
-      /* For mobile phones: */
-      [class*="col-"] {
-        width: 100%;
-      }
-    }
-
-    body {
-      background-color: linen;
-    }
-
-    h3 {
-      font-weight: bold;
-      font-size-adjust: 0.90;
-
-      color: DarkSlateGray;
-    }
-  </style>
-
  <canvas id="myCanvas" width="1000" height="1000">
  </canvas>
 
@@ -88,17 +87,11 @@ function removeDummy() {
       var c = document.getElementById("myCanvas");
       var ctx = c.getContext("2d");
       var img = document.getElementById("face");
-    //  document.getElementById('face').style.visibility = 'hidden';
-removeDummy();
-       ctx.drawImage(img, 0, 0);
-      console.log("-----------------------------------");
+      //removeDummy();//remove the original face image 
+      ctx.drawImage(img, 0, 0);
 
 
-      //console.log(x);
-      //for (var key in x) { 
-      //console.log(x[key].x + x[key].y);
-      // }
-      // console.log("--------------");
+      /
       ctx.fillStyle = "#4B0082";
       <% if (detailsFromApi[0]!== undefined) {%>
 
@@ -106,36 +99,11 @@ removeDummy();
      var x = (<%= detailsFromApi[0].landmark[key].x %>);
         var y = (<%= detailsFromApi[0].landmark[key].y %>);
         ctx.fillRect(x, y, 7, 7);
-        //console.log(x + "," + y);
      <% } %>
      <% } %>
-
-
-
-  //console.log("--------------");
-    //var landmarks = JSON.parse(str,function(res){console.log(res)});
-    //console.log(landmarks);
-
 
 }
-/*
-    const MODEL_URL = '/models';
-    
-    async function start(){await faceapi.loadSsdMobilenetv1Model(MODEL_URL);};
-    async function middle(){await faceapi.loadFaceLandmarkModel(MODEL_URL);};
-    async function end() {await faceapi.loadFaceRecognitionModel(MODEL_URL);};
-    start();
-    middle();
-    end();
-    const input = document.getElementById('face');
-    let fullFaceDescriptions = async function result(){await faceapi.detectAllFaces(input).withFaceLandmarks().withFaceDescriptors();};
-    fullFaceDescriptions = faceapi.resizeResults(fullFaceDescriptions);
-    //faceapi.draw.drawDetections(canvas, fullFaceDescriptions);
-    faceapi.draw.drawLandmarks(canvas, fullFaceDescriptions,function(res){
-      console.log(res);
-    });
-    
-    */
+
   </script>
 </body>
 
