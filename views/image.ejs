@@ -87,11 +87,13 @@ function removeDummy() {
       var c = document.getElementById("myCanvas");
       var ctx = c.getContext("2d");
       var img = document.getElementById("face");
-      //removeDummy();//remove the original face image 
+      
+      removeDummy();//remove the original face image 
+
       ctx.drawImage(img, 0, 0);
 
 
-      /
+      
       ctx.fillStyle = "#4B0082";
       <% if (detailsFromApi[0]!== undefined) {%>
 
