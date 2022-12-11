@@ -16,7 +16,7 @@
     "cloudinary-jquery-file-upload": "^2.7.4",
     "cors": "^2.8.5",
     "ejs": "^2.7.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-fileupload": "^1.1.6-alpha.6",
     "face-plus-plus": "0.0.3",
     "face-plusplus-node": "0.0.6",
